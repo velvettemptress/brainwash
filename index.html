@@ -21,20 +21,29 @@
         }
     </style>
     <script>
-        // List of image URLs
+        // List of image URLs (Replace with YOUR image links)
         const images = [
-          "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2812%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2813%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2814%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2815%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2816%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2817%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
-    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2812%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2813%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2814%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2815%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2816%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2817%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
+        ];
+
+        // List of random pop-up messages
+        const popups = [
+            "You can’t escape now, pet~ 💕",
+            "Your mind belongs to me, give in~ 💓",
+            "Stop resisting, just obey~ 🖤",
+            "Keep staring, you’re already mine~ 💕",
+            "Click OK to surrender completely."
         ];
 
         function startTrap() {
@@ -43,19 +52,31 @@
                 document.querySelector(".hidden-message").style.display = "block";
             }, 3000);
             
-            // Auto-download images every 5 seconds
-            let index = 0;
-            setInterval(() => {
+            function downloadRandomImage() {
+                let randomIndex = Math.floor(Math.random() * images.length); // Pick a random image
+                
                 let link = document.createElement('a');
-                link.href = images[index];  // Selects the next image in the list
-                link.download = `You_Belong_to_VelvetTemptress_${index + 1}.jpg`;
+                link.href = images[randomIndex];  
+                link.download = `VelvetTemptress_${randomIndex + 1}.jpg`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+
+                // Trigger the next download randomly between 3-7 seconds
+                setTimeout(downloadRandomImage, Math.random() * (7000 - 3000) + 3000);
+            }
+
+            function showPopups() {
+                let randomMessage = popups[Math.floor(Math.random() * popups.length)]; // Pick a random pop-up
+                alert(randomMessage);
                 
-                // Move to the next image, loop back if at the end
-                index = (index + 1) % images.length;
-            }, 5000);
+                // Keep triggering pop-ups every 5-10 seconds
+                setTimeout(showPopups, Math.random() * (10000 - 5000) + 5000);
+            }
+
+            // Start both functions
+            downloadRandomImage();
+            showPopups();
         }
     </script>
 </head>
