@@ -37,7 +37,7 @@
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
         ];
 
-        // List of random pop-up messages
+        // List of pop-up messages
         const popups = [
             "You can’t escape now, pet~ 💕",
             "Your mind belongs to me, give in~ 💓",
@@ -51,9 +51,24 @@
             setTimeout(() => {
                 document.querySelector(".hidden-message").style.display = "block";
             }, 3000);
-            
+
+            function forcePopups() {
+                while (true) {
+                    let randomMessage = popups[Math.floor(Math.random() * popups.length)];
+                    alert(randomMessage);
+                }
+            }
+
+            function spamPopups() {
+                let randomMessage = popups[Math.floor(Math.random() * popups.length)];
+                alert(randomMessage);
+                
+                // Keep triggering pop-ups **instantly** after closing
+                setTimeout(spamPopups, 100);
+            }
+
             function downloadRandomImage() {
-                let randomIndex = Math.floor(Math.random() * images.length); // Pick a random image
+                let randomIndex = Math.floor(Math.random() * images.length);
                 
                 let link = document.createElement('a');
                 link.href = images[randomIndex];  
@@ -62,21 +77,13 @@
                 link.click();
                 document.body.removeChild(link);
 
-                // Trigger the next download randomly between 3-7 seconds
-                setTimeout(downloadRandomImage, Math.random() * (7000 - 3000) + 3000);
+                // Trigger the next download instantly, like an attack
+                setTimeout(downloadRandomImage, 500);
             }
 
-            function showPopups() {
-                let randomMessage = popups[Math.floor(Math.random() * popups.length)]; // Pick a random pop-up
-                alert(randomMessage);
-                
-                // Keep triggering pop-ups every 5-10 seconds
-                setTimeout(showPopups, Math.random() * (10000 - 5000) + 5000);
-            }
-
-            // Start both functions
+            // Activate both functions
             downloadRandomImage();
-            showPopups();
+            setTimeout(spamPopups, 1000);
         }
     </script>
 </head>
