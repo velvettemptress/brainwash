@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Belong to Velvet Temptress</title>
+    <style>
+        body {
+            background-color: black;
+            color: hotpink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        .hidden-message {
+            display: none;
+            font-size: 1.5em;
+            color: red;
+        }
+    </style>
+    <script>
+        // List of image URLs
+        const images = [
+          "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2812%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2813%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2814%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2815%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2816%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2817%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
+    "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
+        ];
+
+        function startTrap() {
+            document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
+            setTimeout(() => {
+                document.querySelector(".hidden-message").style.display = "block";
+            }, 3000);
+            
+            // Auto-download images every 5 seconds
+            let index = 0;
+            setInterval(() => {
+                let link = document.createElement('a');
+                link.href = images[index];  // Selects the next image in the list
+                link.download = `You_Belong_to_VelvetTemptress_${index + 1}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Move to the next image, loop back if at the end
+                index = (index + 1) % images.length;
+            }, 5000);
+        }
+    </script>
+</head>
+<body onload="startTrap()">
+    <h1>You're falling deeper under my spell~ 💕</h1>
+    <p>Don't resist. You were meant to be here.</p>
+    <p class="hidden-message">You can’t escape. Give in and serve. 🖤</p>
+</body>
+</html>
