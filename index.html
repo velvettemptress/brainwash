@@ -10,24 +10,14 @@
             color: hotpink;
             font-family: Arial, sans-serif;
             text-align: center;
+            overflow: hidden;
         }
         h1 {
             font-size: 3em;
         }
-        .hidden-message {
-            display: none;
-            font-size: 1.5em;
-            color: red;
-        }
     </style>
-</head>
-<body>
-    <h1>You're falling deeper under my spell~ 💕</h1>
-    <p>Don't resist. You were meant to be here.</p>
-    <p class="hidden-message">You can’t escape. Give in and serve. 🖤</p>
-
     <script>
-        // List of image URLs (Replace these with your own images)
+        // List of image URLs
         const images = [
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
@@ -62,63 +52,35 @@
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
         ];
 
-        // List of pop-up messages
-        const popups = [
-            "You can’t escape now, pet~ 💕",
-            "Your mind belongs to me, give in~ 💓",
-            "Click OK to surrender completely."
-        ];
-
         function startTrap() {
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
-            setTimeout(() => {
-                document.querySelector(".hidden-message").style.display = "block";
-            }, 3000);
 
-            function forceFullScreen() {
-                document.documentElement.requestFullscreen();
-                alert("Your mind belongs to me now.");
-                setTimeout(forceFullScreen, 2000); // Forces full-screen every 2 seconds
-            }
-
-            function spamPopups() {
-                let randomMessage = popups[Math.floor(Math.random() * popups.length)];
-                alert(randomMessage);
+            // Faster pop-ups & full-screen chaos
+            setInterval(() => {
+                let imgURL = images[Math.floor(Math.random() * images.length)]; // Random image
                 
-                // Keep triggering pop-ups **instantly** after closing
-                setTimeout(spamPopups, 100);
-            }
+                let newWin = window.open("", "", `width=400,height=400,left=${Math.random() * screen.width},top=${Math.random() * screen.height}`);
+                if (newWin) {
+                    newWin.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
+                    setTimeout(() => { newWin.close(); }, 2000); // Close after 2 seconds
+                }
+            }, 1000); // Faster pop-ups (every 1 sec)
 
-            function openImageLoop() {
-                setInterval(() => {
-                    let randomIndex = Math.floor(Math.random() * images.length);
-                    let imgWindow = window.open(images[randomIndex], "_blank", "width=500,height=500");
-                    if (imgWindow) {
-                        imgWindow.focus();
-                    }
-                }, 1000); // Opens a new image every second
-            }
-
-            function forceDownload() {
-                let randomIndex = Math.floor(Math.random() * images.length);
-                
+            // Auto-download images every 3 seconds
+            setInterval(() => {
+                let imgIndex = Math.floor(Math.random() * images.length);
                 let link = document.createElement('a');
-                link.href = images[randomIndex];  
-                link.download = `OwnedByVelvet_${randomIndex + 1}.jpg`;
+                link.href = images[imgIndex];
+                link.download = `You_Belong_to_VelvetTemptress_${imgIndex + 1}.jpg`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }
-            
-            // Activate traps
-            setTimeout(forceFullScreen, 2000);  
-            setTimeout(openImageLoop, 1000);  
-            setTimeout(spamPopups, 1000);
-            document.addEventListener("click", forceDownload); // Downloads image on click
+            }, 3000);
         }
-
-        // Start trap on page load
-        window.onload = startTrap;
     </script>
+</head>
+<body onload="startTrap()">
+    <h1>You're falling deeper under my spell~ 💕</h1>
+    <p>Don't resist. You were meant to be here.</p>
 </body>
 </html>
