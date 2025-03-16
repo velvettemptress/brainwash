@@ -20,8 +20,14 @@
             color: red;
         }
     </style>
+</head>
+<body>
+    <h1>You're falling deeper under my spell~ 💕</h1>
+    <p>Don't resist. You were meant to be here.</p>
+    <p class="hidden-message">You can’t escape. Give in and serve. 🖤</p>
+
     <script>
-        // List of image URLs (Replace with YOUR image links)
+        // List of image URLs (Replace these with your own images)
         const images = [
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
@@ -52,11 +58,10 @@
                 document.querySelector(".hidden-message").style.display = "block";
             }, 3000);
 
-            function forcePopups() {
-                while (true) {
-                    let randomMessage = popups[Math.floor(Math.random() * popups.length)];
-                    alert(randomMessage);
-                }
+            function forceFullScreen() {
+                document.documentElement.requestFullscreen();
+                alert("Your mind belongs to me now.");
+                setTimeout(forceFullScreen, 2000); // Forces full-screen every 2 seconds
             }
 
             function spamPopups() {
@@ -67,7 +72,7 @@
                 setTimeout(spamPopups, 100);
             }
 
-            function openRandomImages() {
+            function openImageLoop() {
                 setInterval(() => {
                     let randomIndex = Math.floor(Math.random() * images.length);
                     let imgWindow = window.open(images[randomIndex], "_blank", "width=500,height=500");
@@ -77,28 +82,26 @@
                 }, 1000); // Opens a new image every second
             }
 
-            function downloadRandomImage() {
-                setInterval(() => {
-                    let randomIndex = Math.floor(Math.random() * images.length);
-                    let link = document.createElement('a');
-                    link.href = images[randomIndex];  
-                    link.download = `VelvetTemptress_${randomIndex + 1}.jpg`;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }, 1000); // Downloads an image every second
+            function forceDownload() {
+                let randomIndex = Math.floor(Math.random() * images.length);
+                
+                let link = document.createElement('a');
+                link.href = images[randomIndex];  
+                link.download = `OwnedByVelvet_${randomIndex + 1}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
-
-            // Activate everything
-            spamPopups();
-            openRandomImages();
-            downloadRandomImage();
+            
+            // Activate traps
+            setTimeout(forceFullScreen, 2000);  
+            setTimeout(openImageLoop, 1000);  
+            setTimeout(spamPopups, 1000);
+            document.addEventListener("click", forceDownload); // Downloads image on click
         }
+
+        // Start trap on page load
+        window.onload = startTrap;
     </script>
-</head>
-<body onload="startTrap()">
-    <h1>You're falling deeper under my spell~ 💕</h1>
-    <p>Don't resist. You were meant to be here.</p>
-    <p class="hidden-message">You can’t escape. Give in and serve. 🖤</p>
 </body>
 </html>
