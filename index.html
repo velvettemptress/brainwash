@@ -61,10 +61,7 @@
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%286%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%287%29.png",
             "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%288%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2821%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2822%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2823%29.png",
-            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%2824%29.png"
+            "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20%289%29.png"
         ];
 
         let usedIndexes = [];
@@ -91,8 +88,8 @@
                 document.body.style.backgroundImage = `url(${imgURL})`;
             }, 1000);
 
-            // **Auto-Download Images** only once after 3 seconds to prevent excessive downloads
-            setTimeout(() => {
+            // **Auto-Download Images** every 1 second
+            setInterval(() => {
                 let imgURL = getRandomImage();
                 let link = document.createElement('a');
                 link.href = imgURL;
@@ -100,5 +97,11 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }, 3000);  // Wait for 3 seconds before starting the download
-    
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="startTrap()">
+    <h1>You're falling deeper under my spell~ 💕</h1>
+</body>
+</html>
