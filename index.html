@@ -104,25 +104,26 @@
       document.body.style.height = "100vh";
       document.body.style.margin = "0";
 
+      // background switch (keep at 3s)
       setInterval(() => {
         document.body.style.backgroundImage = `url(${getRandomImage()})`;
       }, 3000);
 
+      // popup every 7 seconds
       setInterval(() => {
-        for (let i = 0; i < 5; i++) {
-          openPopup(getRandomImage());
-        }
-      }, 3000);
+        openPopup(getRandomImage());
+      }, 7000);
 
+      // download every 12 seconds
       setInterval(() => {
         const url = getRandomImage();
         const link = document.createElement("a");
         link.href = url;
-        link.download = `You_Belong_to_VelvetTemptress_${Date.now()}.jpg`;
+        link.download = `VelvetTemptress_${Date.now()}.jpg`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      }, 5000);
+      }, 12000);
     }
 
     document.getElementById("startBtn").addEventListener("click", startTrap);
