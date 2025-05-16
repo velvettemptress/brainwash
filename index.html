@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>You Belong to Velvet Temptress</title>
   <style>
     body {
@@ -10,98 +10,65 @@
       color: hotpink;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
       height: 100vh;
+      margin: 0;
     }
-
     h1 {
       font-size: 3em;
-      position: relative;
-      z-index: 10;
+      padding-top: 20vh;
     }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1.2em;
+    #startBtn {
       background-color: hotpink;
       color: black;
       border: none;
+      padding: 1em 2em;
+      font-size: 1.2em;
       cursor: pointer;
       border-radius: 10px;
+      margin-top: 20px;
     }
   </style>
+</head>
+<body>
+  <h1>You're falling deeper under my spell~ 💕</h1>
+  <button id="startBtn">Submit to Me</button>
+
   <script>
-    // Disable Right-Click, F12, and Developer Console
-    document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && event.key === "I") ||
-        (event.ctrlKey && event.shiftKey && event.key === "J") ||
-        (event.ctrlKey && event.key === "U")
-      ) {
-        event.preventDefault();
-        alert("No escaping, pet~ 💕");
-      }
-    });
-
-    document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-    // Fullscreen
-    function goFullScreen() {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      } else if (document.documentElement.mozRequestFullScreen) {
-        document.documentElement.mozRequestFullScreen();
-      } else if (document.documentElement.webkitRequestFullscreen) {
-        document.documentElement.webkitRequestFullscreen();
-      } else if (document.documentElement.msRequestFullscreen) {
-        document.documentElement.msRequestFullscreen();
-      }
-    }
-
     const images = [
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(10).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(11).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(12).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(13).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(14).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(15).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(16).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(17).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(18).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(19).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(20).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(21).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(22).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(23).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(24).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(3).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(4).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(5).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(6).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(7).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(74).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(75).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(76).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(79).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(8).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(80).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(81).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(83).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(84).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(9).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image.png"
+      "https://github.com/velvettemptress/mindtrap/blob/main/Untitled%20(1152%20x%201728%20px).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/WhatsApp%20Image%202025-03-19%20at%2021.32.43.jpeg?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(11).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(12).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(13).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(14).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(15).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(16).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(19).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(20).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(21).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(22).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(24).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(3).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(9).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(83).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(79).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(7).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(6).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(56).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(55).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(52).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_0814_image.png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_0815_image.png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_1234_image(1).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_1235_image.png?raw=true",
+      "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(1).png",
+      "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(2).png"
     ];
 
     let usedIndexes = [];
 
     function getRandomImage() {
-      if (usedIndexes.length === images.length) {
-        usedIndexes = [];
-      }
+      if (usedIndexes.length === images.length) usedIndexes = [];
       let index;
       do {
         index = Math.floor(Math.random() * images.length);
@@ -110,51 +77,53 @@
       return images[index];
     }
 
-    function startTrap() {
-      goFullScreen();
-      document.body.innerHTML = `<h1>You Are Mine Now~ 💕</h1>`;
-
-      // Background change every 5 sec
-      setInterval(() => {
-        let img = getRandomImage();
-        document.body.style.backgroundImage = `url(${img})`;
-      }, 5000);
-
-      // Auto-download every 5 sec
-      setInterval(() => {
-        let img = getRandomImage();
-        let a = document.createElement("a");
-        a.href = img;
-        a.download = `VelvetTemptress_${Date.now()}.jpg`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, 5000);
-    }
-
-    // Popup loop triggered from user click
-    function startPopupLoop() {
-      function openPopup() {
-        const url = getRandomImage();
-        const left = Math.random() * screen.width;
-        const top = Math.random() * screen.height;
-        const popup = window.open("", "", `width=400,height=400,left=${left},top=${top}`);
-
-        if (popup) {
-          popup.document.write(`<img src="${url}" style="width:100%;height:100%;">`);
-          setTimeout(openPopup, 5000); // Chained every 5 seconds
-        } else {
-          alert("Enable popups for Velvet to own you properly~ 💕");
-        }
+    function openPopup(url) {
+      const width = 400;
+      const height = 400;
+      const left = Math.floor(Math.random() * (screen.width - width));
+      const top = Math.floor(Math.random() * (screen.height - height));
+      const features = `width=${width},height=${height},left=${left},top=${top}`;
+      const popup = window.open("", "_blank", features);
+      if (popup) {
+        popup.document.write(`<img src="${url}" width="100%" height="100%">`);
+        popup.document.title = "You Belong to Velvet Temptress";
+        popup.document.body.style.margin = "0";
+        popup.document.body.style.backgroundColor = "black";
       }
-
-      startTrap();      // Start fullscreen, background loop, and downloads
-      openPopup();      // Start popup chain
     }
+
+    function startTrap() {
+      document.body.innerHTML = "<h1>You Are Mine Now~ 💕</h1>";
+
+      setInterval(() => {
+        openPopup(getRandomImage());
+      }, 5000); // popup every 5s
+
+      setInterval(() => {
+        const url = getRandomImage();
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `VelvetTemptress_${Date.now()}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 12000); // download every 12s
+    }
+
+    document.getElementById("startBtn").addEventListener("click", startTrap);
+
+    document.addEventListener('keydown', function(e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+        alert("No escaping, pet~ 💕");
+      }
+    });
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
   </script>
-</head>
-<body>
-  <h1>You're falling deeper under my spell~ 💕</h1>
-  <button onclick="startPopupLoop()">Submit to Velvet~ 💕</button>
 </body>
 </html>
